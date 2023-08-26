@@ -23,11 +23,12 @@ public class DelUserTask implements Task {
 
         actor.attemptsTo(
                 Delete.from(endPoint)
-                        .with(
-                                requestSpecification -> requestSpecification
-                                        .contentType(ContentType.JSON)
+                        .with(requestSpecification -> requestSpecification
+                                .contentType(ContentType.JSON)
+                                .log().all()  // Agregar esta línea para imprimir la solicitud
                         )
         );
+
     }
 
     public static DelUserTask on(String endPoint, String username) {

@@ -7,7 +7,9 @@ import io.cucumber.java.en.*;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.util.EnvironmentVariables;
+import org.hamcrest.CoreMatchers;
 
+import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -32,14 +34,24 @@ public class DelUserStepDef {
     }
     @Then("I can validate the phone {string}")
     public void iCanValidateThePhone(String phone) {
-        String x = DeleteResponse.was().answeredBy(user).getUsername();
+        //String x = DeleteResponse.was().answeredBy(user).getUsername();
+       /* user.should(
+                seeThat(
+                        "The phone number was",
+                        res -> DeleteResponse.was().answeredBy(user).getPhone(),
+                        equalTo(phone)
+                )
+        );*/
 
         user.should(
                 seeThat(
-                        "The phone number was",
-                        res-> DeleteResponse.was().answeredBy(user).getPhone(),
-                        equalTo(phone)
+                        "The response code is",
+                        res -> lastResponse().statusCode(),
+                        CoreMatchers.equalTo(200)
                 )
         );
+
+
+
     }
 }

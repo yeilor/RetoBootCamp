@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src\\test\\resources\\features",
         glue = "com.fakeStoreApi.stepDefinitions",
-        tags = "@DelUser",
+        tags = "@PutUser",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class Runner {
