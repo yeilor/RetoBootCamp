@@ -32,7 +32,7 @@ public class DelUserStepDef {
     }
     @Then("I can validate the phone {string}")
     public void iCanValidateThePhone(String phone) {
-        String x = DeleteResponse.was().answeredBy(user).getUsername();
+        //String x = DeleteResponse.was().answeredBy(user).getUsername();
 
         user.should(
                 seeThat(
