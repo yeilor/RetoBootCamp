@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Delete user" skipped="0" tests="1" time="2.7" timestamp="2023-08-26 02:58:48"><testcase name="Delete user successfully."><error message="Cannot parse object because no supported Content-Type was specified in response. Content-Type was 'text/html'." type="java.lang.IllegalStateException">Cannot parse object because no supported Content-Type was specified in response. Content-Type was 'text/html'.</error><system-err>Cannot parse object because no supported Content-Type was specified in response. Content-Type was 'text/html'.&#13;
+io.restassured.internal.mapping.ObjectMapping.deserialize(ObjectMapping.groovy:95)&#13;
+io.restassured.internal.RestAssuredResponseOptionsGroovyImpl.as(RestAssuredResponseOptionsGroovyImpl.groovy:231)&#13;
+io.restassured.internal.RestAssuredResponseOptionsImpl.as(RestAssuredResponseOptionsImpl.java:169)&#13;
+net.serenitybdd.rest.decorators.ResponseDecorated.as(ResponseDecorated.java:62)&#13;
+com.fakeStoreApi.questions.user.DeleteResponse.answeredBy(DeleteResponse.java:12)&#13;
+com.fakeStoreApi.stepDefinitions.DelUserStepDef.iCanValidateThePhone(DelUserStepDef.java:35)&#13;
+✽.I can validate the phone "&lt;phone&gt;"(file:///C:/Y/Campus/Semilleros/Bootcamp%20de%20Automatizacion/RetoBootcamp/src/test/resources/features/DelUser.feature:6)&#13;
+</system-err></testcase></testsuite>
