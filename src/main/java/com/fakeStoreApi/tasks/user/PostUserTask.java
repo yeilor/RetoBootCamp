@@ -23,6 +23,7 @@ public class PostUserTask implements Task {
                         requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON)
                                 .body(userInfo)
+                                .log().all()
                 )
         );
 

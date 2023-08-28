@@ -1,28 +1,22 @@
 package com.fakeStoreApi.tasks.user;
 
-import com.fakeStoreApi.models.user.UserModel;
+import com.fakeStoreApi.utils.user.Data;
 import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Delete;
 
+import java.util.Map;
+
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class DelUserTask implements Task {
 
-    private final String endPoint;
-    private final String username;
-
-    public DelUserTask(String endPoint, String username) {
-        this.endPoint = endPoint;
-        this.username = username;
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
-
+        Map<String, String> data = Data.extractTo().get(0);
         actor.attemptsTo(
-                Delete.from(endPoint)
+                Delete.from(data.get("endpoint")+data.get("id"))
                         .with(requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON)
                                 .log().all()  // Agregar esta línea para imprimir la solicitud
@@ -31,7 +25,7 @@ public class DelUserTask implements Task {
 
     }
 
-    public static DelUserTask on(String endPoint, String username) {
-        return instrumented(DelUserTask.class,endPoint, username);
+    public static DelUserTask on() {
+        return instrumented(DelUserTask.class);
     }
 }
