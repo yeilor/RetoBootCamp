@@ -16,7 +16,7 @@ public class DelUserTask implements Task {
     public <T extends Actor> void performAs(T actor) {
         Map<String, String> data = Data.extractTo().get(0);
         actor.attemptsTo(
-                Delete.from(data.get("endpoint")+data.get("id"))
+                Delete.from(data.get("endpoint") + data.get("id"))
                         .with(requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON)
                                 .log().all()  // Agregar esta línea para imprimir la solicitud

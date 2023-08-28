@@ -1,6 +1,5 @@
 package com.fakeStoreApi.stepDefinitions;
 
-import com.fakeStoreApi.questions.user.ServerResponse;
 import com.fakeStoreApi.tasks.user.PostUserTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -9,10 +8,8 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.util.EnvironmentVariables;
 import org.hamcrest.CoreMatchers;
 
-
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.Matchers.equalTo;
 
 public class PostUserStepDef {
 

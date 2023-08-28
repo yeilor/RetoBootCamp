@@ -1,7 +1,5 @@
 package com.fakeStoreApi.stepDefinitions;
 
-import com.fakeStoreApi.questions.user.ServerResponse;
-import com.fakeStoreApi.tasks.user.PostUserTask;
 import com.fakeStoreApi.tasks.user.PutUserTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -12,7 +10,6 @@ import org.hamcrest.CoreMatchers;
 
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.Matchers.equalTo;
 
 public class PutUserStepDef {
 
