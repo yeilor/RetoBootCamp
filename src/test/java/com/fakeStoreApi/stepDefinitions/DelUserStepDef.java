@@ -38,12 +38,12 @@ public class DelUserStepDef {
     public void iCanValidateThePhone() {
         Map<String, String> data = Data.extractTo().get(0);
         String x = BuildDataUser.was().answeredBy(user).getPhone();
-        System.out.println(x);
+
         user.should(
                 seeThat(
                         "The phone number was",
                         res -> BuildDataUser.was().answeredBy(user).getPhone(),
-                        equalTo("1-570-236-7033")
+                        equalTo(data.get("phone"))
                 )
         );
 
