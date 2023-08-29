@@ -24,17 +24,19 @@ public class PostUserStepDef {
         user.whoCan(CallAnApi.at(theRestApiBaseUrl));
 
     }
+
     @When("I consume the service and I send the user information")
     public void iConsumeTheServiceAndISendTheUserInformation() {
         user.attemptsTo(
                 PostUserTask.on()
         );
     }
+
     @Then("I can validate the code status")
     public void iCanValidateTheCodeStatus() {
         user.should(
                 seeThat(
-                        "The response code is",
+                        "The response code was: ",
                         res -> lastResponse().statusCode(),
                         CoreMatchers.equalTo(200)
                 )

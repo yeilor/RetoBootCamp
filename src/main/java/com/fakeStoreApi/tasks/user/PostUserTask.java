@@ -1,6 +1,6 @@
 package com.fakeStoreApi.tasks.user;
 
-import com.fakeStoreApi.models.user.UserModel;
+import com.fakeStoreApi.models.user.UserModelPost;
 import com.fakeStoreApi.questions.user.BuildDataUser;
 import com.fakeStoreApi.utils.user.Data;
 import io.restassured.http.ContentType;
@@ -16,7 +16,7 @@ public class PostUserTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        UserModel userInfo = actor.asksFor(BuildDataUser.was());
+        UserModelPost userInfo = actor.asksFor(BuildDataUser.was());
         Map<String, String> data = Data.extractTo().get(0);
         actor.attemptsTo(
                 Post.to(data.get("endpoint")).with(
