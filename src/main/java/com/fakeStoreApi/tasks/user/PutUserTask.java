@@ -1,7 +1,7 @@
 package com.fakeStoreApi.tasks.user;
 
-import com.fakeStoreApi.models.user.UserModel;
-import com.fakeStoreApi.questions.user.BuildDataUser;
+import com.fakeStoreApi.models.user.UserModelPut;
+import com.fakeStoreApi.questions.user.BuildDataUserPut;
 import com.fakeStoreApi.utils.user.Data;
 import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
@@ -15,7 +15,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 public class PutUserTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
-        UserModel userInfo = actor.asksFor(BuildDataUser.was());
+        UserModelPut userInfo = actor.asksFor(BuildDataUserPut.was());
         Map<String, String> data = Data.extractTo().get(0);
         actor.attemptsTo(
                 Put.to(data.get("endpoint") + data.get("id")).with(

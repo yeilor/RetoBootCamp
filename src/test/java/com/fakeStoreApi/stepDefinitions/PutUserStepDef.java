@@ -35,7 +35,7 @@ public class PutUserStepDef {
     public void iCanValidateServerResponseCode() {
         user.should(
                 seeThat(
-                        "The response code is",
+                        "The response code was: ",
                         res -> lastResponse().statusCode(),
                         CoreMatchers.equalTo(200)
                 )

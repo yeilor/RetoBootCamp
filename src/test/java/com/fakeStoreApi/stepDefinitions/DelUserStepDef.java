@@ -1,6 +1,6 @@
 package com.fakeStoreApi.stepDefinitions;
 
-import com.fakeStoreApi.questions.user.BuildDataUser;
+import com.fakeStoreApi.questions.user.BuildDataUserPut;
 import com.fakeStoreApi.tasks.user.DelUserTask;
 import com.fakeStoreApi.utils.user.Data;
 import io.cucumber.java.Before;
@@ -37,13 +37,13 @@ public class DelUserStepDef {
     @Then("I can validate the phone")
     public void iCanValidateThePhone() {
         Map<String, String> data = Data.extractTo().get(0);
-        String x = BuildDataUser.was().answeredBy(user).getPhone();
+        String x = BuildDataUserPut.was().answeredBy(user).getPhoneUpdate();
 
         user.should(
                 seeThat(
                         "The phone number was",
-                        res -> BuildDataUser.was().answeredBy(user).getPhone(),
-                        equalTo(data.get("phone"))
+                        res -> BuildDataUserPut.was().answeredBy(user).getPhoneUpdate(),
+                        equalTo(data.get("phoneUpdate"))
                 )
         );
 
